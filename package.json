@@ -1,0 +1,14 @@
+{
+  "name": "playwright-bosch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Vardhan",
+  "license": "ISC",
+  "description": "This Project is created for Bosch - Playwright Typescript",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.5.2"
+  }
+}
