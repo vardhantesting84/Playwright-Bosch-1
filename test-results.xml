@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="16.154851">
+<testsuite name="Reports.spec.ts" timestamp="2025-09-29T10:45:16.457Z" hostname="chromium" tests="4" failures="0" skipped="0" time="15.702" errors="0">
+<testcase name="Enter Name" classname="Reports.spec.ts" time="3.182">
+</testcase>
+<testcase name="Enter Email" classname="Reports.spec.ts" time="4.045">
+</testcase>
+<testcase name="Enter Phone Number" classname="Reports.spec.ts" time="5.034">
+</testcase>
+<testcase name="Enter Address" classname="Reports.spec.ts" time="3.441">
+</testcase>
+</testsuite>
+</testsuites>

@@ -5,7 +5,7 @@ test("Verify Title BPB Online", async ({page}) => {
      //await page.pause()
      await page.goto("https://practice.bpbonline.com/")
      console.log("Navigated to URL")
-     await expect(page).toHaveTitle("BPB Online1")
+     await expect(page).toHaveTitle("BPB Online")
      console.log("Verified Title")
 })
 

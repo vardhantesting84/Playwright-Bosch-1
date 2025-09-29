@@ -1,5 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
-import { url } from 'inspector';
+import { chromium, defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -13,6 +12,16 @@ import { url } from 'inspector';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  //globalTimeout: 10000,
+  //timeout:90000,
+
+  // expect:{
+  //   timeout:20000
+  // },
+  
+  globalSetup:require.resolve('./global.setup.ts'),
+  globalTeardown:require.resolve('./global.teardown.ts'),
+
   //timeout:50000,
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -24,7 +33,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 6,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: 'allure-playwright',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   
   use: {
@@ -32,17 +41,19 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    //trace: 'retain-on-failure',
+    trace: 'retain-on-failure',
     //baseURL:'https://testautomationpractice.blogspot.com/',
     // headless:false,
-    // screenshot:'only-on-failure',
-    // video:'retain-on-failure',
+    screenshot:'only-on-failure',
+    video:'retain-on-failure',
     // browserName:'firefox',
     // testData:{
     //   url:'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
     //   username:'Admin',
     //   password:'admin123',
     // }
+    //actionTimeout:10000,
+    //navigationTimeout:1000
   },
 
   /* Configure projects for major browsers */
@@ -51,6 +62,26 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+
+    // {
+    //   name:'setup DB',
+    //   testMatch:'global.setup.ts',
+    //   teardown:'clean DB'
+    // },
+    // {
+    //   name:'chromium',
+    //   use:{ ...devices['Desktop Chrome'] },
+    //   dependencies:['setup DB']
+    // },
+    // {
+    //   name:'firefox',
+    //   use:{ ...devices['Desktop Firefox'] },
+    //   dependencies:['setup DB']
+    // },
+    // {
+    //   name:'clean DB',
+    //   testMatch:'global.teardown.ts'
+    // },
 
     // {
     //   name:'setup',
